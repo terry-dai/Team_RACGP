@@ -1,0 +1,149 @@
+{
+  "1.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":1
+    ,"Case_ID":"1"
+    ,"Cand_ID":793011
+    },
+  "2.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":2
+    ,"Case_ID":"1"
+    ,"Cand_ID":796568
+    },
+  "3.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":3
+    ,"Case_ID":"1"
+    ,"Cand_ID":721909
+    },
+  "4.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":4
+    ,"Case_ID":"1"
+    ,"Cand_ID":771632
+    },
+  "5.B": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":5
+    ,"Case_ID":"B"
+    ,"Cand_ID":null
+    },
+  "6.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":6
+    ,"Case_ID":"1"
+    ,"Cand_ID":763115
+    },
+  "7.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":7
+    ,"Case_ID":"1"
+    ,"Cand_ID":737152
+    },
+  "8.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":8
+    ,"Case_ID":"1"
+    ,"Cand_ID":798578
+    },
+  "9.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":9
+    ,"Case_ID":"1"
+    ,"Cand_ID":778590
+    },
+  "10.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":10
+    ,"Case_ID":"1"
+    ,"Cand_ID":731117
+    },
+  "11.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":11
+    ,"Case_ID":"1"
+    ,"Cand_ID":748319
+    },
+  "12.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":12
+    ,"Case_ID":"1"
+    ,"Cand_ID":760456
+    },
+  "13.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":13
+    ,"Case_ID":"1"
+    ,"Cand_ID":781610
+    },
+  "14.B": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":14
+    ,"Case_ID":"B"
+    ,"Cand_ID":null
+    },
+  "15.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":15
+    ,"Case_ID":"1"
+    ,"Cand_ID":764556
+    },
+  "16.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":16
+    ,"Case_ID":"1"
+    ,"Cand_ID":739079
+    },
+  "17.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":17
+    ,"Case_ID":"1"
+    ,"Cand_ID":739592
+    },
+  "18.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":18
+    ,"Case_ID":"1"
+    ,"Cand_ID":753538
+    },
+  "19.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":19
+    ,"Case_ID":"1"
+    ,"Cand_ID":793532
+    },
+  "20.1": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":20
+    ,"Case_ID":"1"
+    ,"Cand_ID":736296
+    },
+  "21.Q": {
+     "Exam_ID1":7000001
+     "Exam_ID2":7000018
+    ,"Time_ID":21
+    ,"Case_ID":"Q"
+    ,"Cand_ID":null
+    }
+}

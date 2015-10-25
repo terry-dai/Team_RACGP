@@ -1,0 +1,15 @@
+Case_ID,Case.Topic,Case.Name,CaseICPC,Case.Type,Case.Age,Case.Gender,Case.Rating Forms,R1,R2,R3,R4,R5,R6,W1,W2,W3,W4,W5,W6,ATSIH,RolePlayer,Observer,Actor
+1,Topic 1,CNameone,General,Short,16,Either,2,Communication and Rapport,History Taking,Physical Examination,Management,Ethical and Medico Legal Issues,,,,,,,,,1,1,0
+2,Topic 2,Nametwo,Skin,Short,58,Either,2,Communication and Rapport,History Taking,Physical Examination,Management,,,,,,,,,,1,1,0
+3,Topic 3,Namethree,Musculoskeletal,Short,46,M,2,Communication and Rapport,History Taking,Physical Examination,Diagnosis,Investigations,,,,,,,,,1,1,0
+4,Topic 4,Namefour,General,Short,3,M,2,Communication and Rapport,History Taking,Physical Examination,Investigations,Management,,,,,,,,,1,1,0
+5,Topic 5,Namefive,Blood,Short,65,Either,1,Communication and Rapport,History Taking,Physical Examination Technique,Physical Examination Findings,Management,,,,,,,,,1,0,0
+6,Topic 6,Namesix,Musculoskeletal,Long,55,Either,2,Communication and Rapport,History Taking,Problem Definition,Management,,,,,,,,,,1,1,0
+7,Topic 7,Nameseven,Neurological,Short,69,F,1,Inter-professional Communication Skills,Medical Knowledge,Management,Prompting,,,,,,,,,,1,0,0
+8,Topic 8,Nameeight,Reproductive ,Short,44,F,1,Communication and Rapport,History Taking,Management,,,,,,,,,,Yes,1,0,1
+9,Topic 9,Namenine,General,Short,70,M,2,Communication and Rapport,History Taking,Physical Examination,Management,Ethical and Medico Legal Issues,,,,,,,,,1,1,0
+10,Topic 10,Nameten,Cardiovascular,Short,50,Either,2,Communication and Rapport,Management,History Taking,,,,,,,,,,,1,1,0
+11,Topic 11,Nameeleven,Psychological,Short,52,Either,2,Communication and Rapport,History Taking,Diagnosis,Investigations,Management,,,,,,,,,1,1,0
+12,Topic 12,Nametwelve,Endocrine,Long,18,Either,2,Communication and Rapport,History Taking,Management,,,,,,,,,,,1,1,1
+13,Topic 13,Namethirteen,General,Short,30,F,2,Communication and Rapport,History Taking,Management,,,,,,,,,,,1,1,0
+14,Topic 14,Namefourteen,Female genital,Short,38,F,2,Communication and Rapport,History Taking,Diagnosis,Management,Public Health Issues,Investigation,Prompting,,,,,,,1,1,0

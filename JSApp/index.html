@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script>
+        function highlightParent(object){
+            if(object.parent().hasClass('clicked')){
+                object.parent().removeClass('clicked');
+                object.parent().addClass('clicked-yellow');
+                return;
+            }
+            if(object.parent().hasClass('clicked-yellow')) {
+                object.parent().removeClass('clicked-yellow');
+                object.parent().addClass('clicked-blue');
+                return;
+            }
+            if(object.parent().hasClass('clicked-blue')) {
+                object.parent().removeClass('clicked-blue');
+                object.parent().addClass('clicked-green');
+                return;
+            }
+            if(object.parent().hasClass('clicked-green')) {
+                object.parent().removeClass('clicked-green');
+                object.parent().addClass('clicked');
+                return;
+            }
+        }
+    </script>
+
+    <title></title>
+</head>
+<body ng-controller="test_schedule" ng-app="app">
+    <div id="main_view" class="col-md-12" >
+
+        <div>
+            <input type="text" class="form-control" placeholder="Search" style="width:100%;" ng-model="search">
+        </div>
+
+        <div id="time_schedule" ng-show="options == 1">
+                <table ng-show="search.length">
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Case</th>
+                        <th>Examiner 1</th>
+                        <th>Examiner 2</th>
+                        <th>Student</th>
+                    </tr>
+                    <tr ng-repeat="test in merged | filter:search " ng-init="padAll();">
+                            <td>{{test.Time_ID}}</td>
+                            <td>{{test.Case_ID}}</td>
+                            <td ng-click="changeTableVar('Exam_ID1',test.Case_ID);">{{test.Exam_ID1_Name }}</td>
+                            <td ng-click="changeTableVar('Exam_ID2',test.Case_ID);">{{test.Exam_ID2_Name}}</td>
+                            <td ng-click="changeTableVar('Cand_ID',test.Cand_ID);">{{test.Cand_ID_Name}}</td>
+                    </tr>
+                </table>
+
+
+                <table ng-repeat="runs in case_schedule " ng-show="!search.length" ng-init="padAll();">
+                        <tr>
+                            <th ng-if="runs == case_schedule[0] || search.length>0">Time Slot</th>
+                            <th>Case</th>
+                            <th>Examiner 1</th>
+                            <th>Examiner 2</th>
+                            <th>Student</th>
+                        </tr>
+                        <tr ng-repeat="test in runs" class="clicked">
+                                    <td onclick="highlightParent($(this));" ng-if="runs == case_schedule[0] || search.length>0">{{test.Time_ID}}</td>
+                                    <td onclick="highlightParent($(this));" >{{test.Case_ID}}</td>
+                                    <td ng-click="changeTableVar('Exam_ID1',test.Case_ID);">{{test.Exam_ID1_Name }}</td>
+                                    <td ng-click="changeTableVar('Exam_ID2',test.Case_ID);">{{test.Exam_ID2_Name}}</td>
+                                    <td ng-click="changeTableVar('Cand_ID',test.Cand_ID);">{{test.Cand_ID_Name}}</td>
+
+                         </tr>
+                </table>
+            </div>
+
+            <div id="candidate_list" ng-show="options==2"  ng-init="Cands = Cand_Full();">
+                <table>
+                    <tr>
+                        <th>Candidate ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Venue</th>
+                    </tr>
+                    <tr ng-repeat="test in Cands | filter:search">
+                        <td>{{Cand_IDs[$index]}}</td>
+                        <td>{{test.Fname}}</td>
+                        <td>{{test.Sname}}</td>
+                        <td>{{test.Venue}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="examiner_list" ng-show="options==3" ng-init="Exams = Exam_Full();">
+                <table>
+                    <tr>
+                        <th>Examiner ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                    <tr ng-repeat="test in Exams | filter:search">
+                        <td>{{Exam_IDs[$index]}}</td>
+                        <td>{{test.FIRST_NAME}}</td>
+                        <td>{{test.LAST_NAME}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="candidate_schedule" ng-show="options==4">
+                <table>
+                    <tr>
+                        <th>Candidate ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Venue</th>
+                    </tr>
+                    <tr ng-repeat="test in merged | filter:search | orderBy:'Cand_ID_Name'">
+                        <td>{{test.Case_ID}}</td>
+                        <td ng-click="changeTableVar('Exam_ID1',test.Case_ID);">{{test.Exam_ID1_Name }}</td>
+                        <td ng-click="changeTableVar('Exam_ID2',test.Case_ID);">{{test.Exam_ID2_Name}}</td>
+                        <td ng-click="changeTableVar('Cand_ID',test.Cand_ID);">{{test.Cand_ID_Name}}</td>
+                    </tr>
+                </table>
+            </div>
+
+    </div>
+    <div id="bottom_tabs" class="col-md-12">
+        <span ng-click="changeOptions(1);">Exam Schedule</span>
+        <span ng-click="changeOptions(2);">Candidate List</span>
+        <span ng-click="changeOptions(3);">Examiner List</span>
+        <span ng-click="changeOptions(4);">Candidate Schedule</span>
+    </div>
+</body>
+</html>
