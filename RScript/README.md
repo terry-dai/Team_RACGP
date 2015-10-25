@@ -17,6 +17,7 @@ Valid filetypes are csv, xls and xlsx.
   `--exams`      | `-e` | Spreadsheet with exam matrix info.
   `--locations`  | `-l` | Spreadsheet with venue info.
   `--session`    | `-s` | Choice of AM or PM session.
+  `--rests`      | `-r` | Number of rest sessions (default 4).
   `--outfile`    | `-o` | Spreadsheet for storing final master roster.
   `--verbose`    | `-v` | Print debugging info to `stderr`.
   `--help`       | `-h` | Print this usage information.

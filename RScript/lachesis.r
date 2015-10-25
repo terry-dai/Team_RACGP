@@ -37,6 +37,7 @@ input.args <- matrix(c(
 ), byrow = TRUE, ncol = 4)
 other.args <- matrix(c(
     "session",    "s", optional, "character",
+    "rests",      "r", optional, "character",
     "outfile",    "o", optional, "character",
     "verbose",    "v", optional, "character",
     "help",       "h", optional, "character"
@@ -73,6 +74,10 @@ if(!is.null(opt$verbose)) {
 session <- NA
 if(!is.null(opt$session)) {
     session <- toupper(opt$session)
+}
+n.rests <- 4
+if(!is.null(opt$rests)) {
+    n.rests <- as.numeric(opt$rests)
 }
 
 # Validate options.
@@ -159,7 +164,8 @@ data$exams <- data$exams[exam.matrix.keep] # Only keep relevant data.
 data$exams$Case.Gender[data$exams$Case.Gender == "Either"] <- NA
 data$exams$Case.Age <- as.numeric(data$exams$Case.Age)
 data$assessors$Assigned <- rep(FALSE, dim(data$assessors)[1])
-data$exams$Assessor <- rep(0, dim(data$exams)[1])
+data$exams$Assessor1 <- rep(0, dim(data$exams)[1])
+data$exams$Assessor2 <- rep(0, dim(data$exams)[1])
 
 yesno2logical <- function(input) {
     return(input == "Yes" | input == "Y")
@@ -212,7 +218,8 @@ age.match <- function(assessor.age, case.age) {
 # Just deal with first case for the moment;
 # can generalise to matching all cases once we know we
 # can find a match to at least one case.
-find.match <- function(case) {
+session.match <- c(session, "BOTH")
+find.assessor1 <- function(case) {
     session.match <- c(session, "BOTH")
     matches <- list(
         ATSIH = which(data$assessors$ATSIH == case$ATSIH
@@ -286,11 +293,32 @@ find.match <- function(case) {
     }
     return(idx)
 }
+find.assessor2 <- function() {
+    available <- which(data$assessors$Avail %in% session.match)
+    return(data$assessors[available[1], "ID"])
+}
 for(case in 1:dim(exams.sorted)[1]) {
     case.number <- exams.sorted[case, "Case.No"]
-    assessor <- find.match(data$exams[case.number,])
-    data$assessors[assessor, "Assigned"] <- TRUE
-    data$exams[case.number, "Assessor"] <- data$assessors[assessor, "ID"]
+    assessor1 <- find.assessor1(data$exams[case.number,])
+    data$assessors[assessor1, "Assigned"] <- TRUE
+    data$exams[case.number, "Assessor1"] <- data$assessors[assessor1, "ID"]
 }
-data$assessors[data$assessors[,"Assigned"] == TRUE,]
-data$exams
+for(case in 1:dim(exams.sorted)[1]) {
+    assessor2 <- find.assessor2()
+    data$assessors[assessor2, "Assigned"] <- TRUE
+    data$exams[case.number, "Assessor2"] <- data$assessors[assessor2, "ID"]
+}
+#data$assessors[data$assessors[,"Assigned"] == TRUE,]
+#data$exams
+
+n.sessions <- dim(data$exams)[1] + n.rests
+candidates1 <- data$candidates[1:n.sessions,]
+timetable <- matrix(sapply(1:n.sessions,
+    function(offset) {
+        return(candidates1[(1:n.sessions - offset) %% n.sessions + 1, "ID"])
+    }
+), nrow = n.sessions)
+
+if(verbose) {
+    warnings()
+}
