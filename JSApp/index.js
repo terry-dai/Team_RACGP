@@ -1,8 +1,8 @@
 var app = angular.module('app', []);
 
 app.controller('test_schedule', [
-    '$scope', '$filter',
-    function($scope) {
+    '$scope', '$filter', '$http',
+    function($scope,$http) {
 
         $scope.checkSearch = function (value, model) {
             if (model.length > 0)
@@ -5182,8 +5182,7 @@ app.controller('test_schedule', [
 
             }];
 
-        $scope.case
-
+        
         $scope.merge = function(){
             var all = [];
             for(schedule in $scope.case_schedule)
